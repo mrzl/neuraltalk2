@@ -170,10 +170,12 @@ local function eval_split(split, evalopt)
   return loss_sum/loss_evals, predictions, lang_stats
 end
 
-local loss, split_predictions, lang_stats = eval_split(opt.split, {num_images = opt.num_images})
-print('loss: ', loss)
-if lang_stats then
-  print(lang_stats)
+while true do
+  local loss, split_predictions, lang_stats = eval_split(opt.split, {num_images = opt.num_images})
+  print('loss: ', loss)
+  if lang_stats then
+    print(lang_stats)
+  end
 end
 
 if opt.dump_json == 1 then
